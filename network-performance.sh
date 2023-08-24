@@ -9,14 +9,14 @@ output_filename="${ssid}_${timestamp}.txt"
   echo SSID: $ssid
 
   echo "\n"
-  echo "---------------------------------------------------------------------------------------------------------------------"
+  echo "#####################################################################################################################"
   echo "\n"
   
   echo "TESTING LOCAL NETWORK ENTRY QUALITY -> PERFORMANCE TO DIRECTLY CONNECTED NEAR-END DEVICE"
   networkquality
   
   echo "\n"
-  echo "---------------------------------------------------------------------------------------------------------------------"
+  echo "#####################################################################################################################"
   echo "\n"
 
   echo "TESTING LOCAL NETWORK PACKAGE EXCHANGE SPEED -> PERFORMANCE TO DIRECTLY CONNECTED NEAR-END DEVICE\n"
@@ -28,7 +28,7 @@ output_filename="${ssid}_${timestamp}.txt"
   echo "$ping_stats_direct"
 
   echo "\n"
-  echo "---------------------------------------------------------------------------------------------------------------------"
+  echo "#####################################################################################################################"
   echo "\n"
 
   echo "TESTING LOCAL NETWORK PACKAGE EXCHANGE SPEED -> PERFORMANCE TO NEAR-END GATEWAY ROUTER\n"
@@ -40,7 +40,7 @@ output_filename="${ssid}_${timestamp}.txt"
   echo "$ping_stats_gateway"
 
   echo "\n"
-  echo "---------------------------------------------------------------------------------------------------------------------"
+  echo "#####################################################################################################################"
   echo "\n"
 
   echo "TESTING INTERNET SPEED -> PERFORMANCE TO REMOTE-ENDPOINT\n"
@@ -48,7 +48,7 @@ output_filename="${ssid}_${timestamp}.txt"
   speedtest-cli
 
   echo "\n"
-  echo "---------------------------------------------------------------------------------------------------------------------"
+  echo "#####################################################################################################################"
   echo "\n"
 
   echo "RECORD OF CURRENTLY CONNECTED DEVICES\n"
