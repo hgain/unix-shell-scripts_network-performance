@@ -52,7 +52,7 @@ output_filename="${ssid}_${timestamp}.txt"
   echo "\n"
 
   echo "RECORD OF CURRENTLY CONNECTED DEVICES\n"
-  arp -a
+  arp -all
 } 2>&1 | sed -e 's/\x1B\[[0-9;]*[JKmsu]//g' | tee "${script_dir}/${output_filename}"
 
 exit
