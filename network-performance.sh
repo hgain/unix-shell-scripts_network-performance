@@ -16,8 +16,8 @@ output_filename="${timestamp}.txt"
   echo "\nTESTING LOCAL NETWORK PACKAGE EXCHANGE SPEED -> PERFORMANCE TO NEAR-END GATEWAY ROUTER"
   getip_gateway=$(route -n get www.google.com | grep gateway)
   ip_gateway=$(echo "$getip_gateway" | grep -oE '\b([0-9]{1,3}\.){3}[0-9]{1,3}\b')
-  hostname=$(arp $ip_gateway)
-  echo "Hostname: '$hostname'"
+  hostname_gateway=$(arp $ip_gateway)
+  echo "Hostname of gateway router: '$hostname_gateway'"
   ping_stats=$(ping $ip_gateway -s 1024 -i 0.25 -c 50 --apple-time | sed -n "/--- $ip_gateway ping statistics ---/,/^---/p")
   echo "$ping_stats"
 
