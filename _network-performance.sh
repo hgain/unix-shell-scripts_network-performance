@@ -33,9 +33,9 @@ output_filename="${start_time}.txt"
   ip_gateway=$(echo "$getip_gateway" | grep -oE '\b([0-9]{1,3}\.){3}[0-9]{1,3}\b')
   hostname_gateway=$(arp $ip_gateway)
   echo "Hostname: '$hostname_gateway'"
-  #ping_stats_gateway=$(ping $ip_gateway -s 1024 -i 0.25 -c 50 --apple-time | sed -n "/--- $ip_gateway ping statistics ---/,/^---/p")
-  #echo "$ping_stats_gateway"
   iperf -e -t15 -c $ip_gateway -P 5 -p 4711 | awk '/^-|^\[ ID\] Interval|^Client connecting|^Write buffer size|^[A-Z][[:space:]]|^\[SUM\]|^\[ CT\]/'
+  #ping_stats_gateway=$(ping $ip_gateway -s 1024 -i 0.25 -c 50 --apple-time | sed -n "/--- $ip_gateway ping statistics ---/,/^---/p")
+  #echo "\n$ping_stats_gateway"
 
   echo "\n"
   echo "#####################################################################################################################"
