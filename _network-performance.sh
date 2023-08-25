@@ -2,11 +2,11 @@ clear
 script_dir=$(dirname "$0")
 start_time=$(date +"%Y-%m-%d_%H-%M-%S")
 ssid=$(/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I | grep -v "BSSID" | grep SSID | cut -d ':' -f2 | xargs)
-output_filename="${ssid}_${start_time}.txt"
+output_filename="${start_time}.txt"
 
 # Start capturing the output and saving it in the same directory as the script
 {
-  echo SSID: $ssid
+  echo WiFi SSID: $ssid
   echo start time: $start_time
 
   echo "\n"
