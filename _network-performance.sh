@@ -28,7 +28,7 @@ output_filename="${start_time}.txt"
   echo "#####################################################################################################################"
   echo "\n"
 
-  echo "TESTING LOCAL NETWORK CLIENT-GATEWAY SPEED\n"
+  echo "TESTING LOCAL NETWORK CLIENT-GATEWAY SPEED (dependent on running iperf server)\n"
   getip_gateway=$(route -n get www.google.com | grep gateway)
   ip_gateway=$(echo "$getip_gateway" | grep -oE '\b([0-9]{1,3}\.){3}[0-9]{1,3}\b')
   hostname_gateway=$(arp $ip_gateway)
