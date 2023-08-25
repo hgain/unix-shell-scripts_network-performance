@@ -35,7 +35,7 @@ output_filename="${ssid}_${start_time}.txt"
   echo "Hostname: '$hostname_gateway'"
   #ping_stats_gateway=$(ping $ip_gateway -s 1024 -i 0.25 -c 50 --apple-time | sed -n "/--- $ip_gateway ping statistics ---/,/^---/p")
   echo "$ping_stats_gateway"
-  iperf -e -t15 -c $ip_gateway -P 5 -p 4711
+  iperf -e -t15 -c $ip_gateway -P 5 -p 4711 | awk '/^-|^\[ ID\] Interval|^Client connecting|^Write buffer size|^[A-Z][[:space:]]|^\[SUM\]|^\[ CT\]/'
 
   echo "\n"
   echo "#####################################################################################################################"
