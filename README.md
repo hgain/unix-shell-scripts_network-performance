@@ -4,7 +4,7 @@
 
 ### dependencies
 - networkquality – native macOS tool
-- speedtest-cli – https://www.speedtest.net/de/apps/cli
+- speedtest-cli – https://www.speedtest.net/de/apps/cli (homebrew install manual: https://www.speedtest.net/apps/cli)
 - iperf – https://formulae.brew.sh/formula/iperf
 - running iperf server on gateway
 
