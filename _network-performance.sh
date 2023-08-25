@@ -20,9 +20,8 @@ output_filename="${start_time}.txt"
   echo "#####################################################################################################################"
   echo "\n"
 
-  echo "PERFORMING SEQUENTIAL INTERNET SPEEDTEST TO CLOSEST SERVER\n"
-  #speedtest-cli --list
-  speedtest-cli
+  echo "PERFORMING SEQUENTIAL INTERNET SPEEDTEST TO CLOSEST SERVER"
+  speedtest
 
   echo "\n"
   echo "#####################################################################################################################"
