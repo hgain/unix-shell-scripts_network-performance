@@ -13,14 +13,14 @@ output_filename="${ssid}_${start_time}.txt"
   echo "#####################################################################################################################"
   echo "\n"
   
-  echo "TESTING UP&DOWN STREAM AND RESPONSIVENESS IN PARALLEL AGAINST STATIC APPLE SPEED QUALIFICATION SERVER"
+  echo "PERFORMING PARALLEL INTERNET SPEEDTEST AGAINST STATIC APPLE QUALIFICATION SERVER"
   networkquality -sv
 
   echo "\n"
   echo "#####################################################################################################################"
   echo "\n"
 
-  echo "PERFORMING SPEEDTEST TO CLOSEST SERVER\n"
+  echo "PERFORMING SEQUENTIAL INTERNET SPEEDTEST TO CLOSEST SERVER\n"
   #speedtest-cli --list
   speedtest-cli
 
@@ -33,10 +33,9 @@ output_filename="${ssid}_${start_time}.txt"
   ip_gateway=$(echo "$getip_gateway" | grep -oE '\b([0-9]{1,3}\.){3}[0-9]{1,3}\b')
   hostname_gateway=$(arp $ip_gateway)
   echo "Hostname: '$hostname_gateway'"
-  ping_stats_gateway=$(ping $ip_gateway -s 1024 -i 0.25 -c 50 --apple-time | sed -n "/--- $ip_gateway ping statistics ---/,/^---/p")
+  #ping_stats_gateway=$(ping $ip_gateway -s 1024 -i 0.25 -c 50 --apple-time | sed -n "/--- $ip_gateway ping statistics ---/,/^---/p")
   echo "$ping_stats_gateway"
-  echo "\n"
-  iperf -e -t15 -c 192.168.2.1 -P 5 -p 4711
+  iperf -e -t15 -c $ip_gateway -P 5 -p 4711
 
   echo "\n"
   echo "#####################################################################################################################"
@@ -44,6 +43,6 @@ output_filename="${ssid}_${start_time}.txt"
 
   echo "SNAPSHOT OF CURRENTLY CONNECTED LOCAL NETWORK DEVICES\n"
   arp -a
-} 2>&1 | sed -e 's/\x1B\[[0-9;]*[JKmsu]//g' | tee "${script_dir}/${output_filename}"
+} 2>&1 | sed -e 's/\x1B\[[0-9;]*[JKmsu]//g' | tee "${script_dir}/${output_filename}" | tee /dev/tty
 
 exit
